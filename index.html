@@ -11,7 +11,7 @@
 
     <h2>Guess what letter I'm thinking of!</h2>
     
-    <div id="game"></div>
+    <div id='game'></div>
 
     
     
@@ -19,57 +19,76 @@
     
     
     
-     <script type="text/javascript">
+    <script type="text/javascript">
      var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
-     "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+     "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
       
       var game = 0;
       var wins = 0;
       var losses = 0;
-      var guessesLeft = 0;
+      var guessesLeft = 9;
       var yourGuess = " ";
 
-      document.onkeyup = function(event) {
+    document.onkeyup = function(event) {
 
       var yourGuess = event.key;
 
       var computerGuess = computerChoices [Math.floor(Math.random() * computerChoices.length)]; 
 
-
+       
+        
+        if (wins === 3 || losses === 3) {
+          wins = 0;
+          losses = 0;
+          guessesLeft = 9;
+        }
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      if (guessesLeft < 1) {
+          guessesLeft = 9;
+          losses++;
+        }
+       
+      if (computerChoices === yourGuess) {
+          gussesLeft = 9;
+          wins++;
       }
+
+      if ( computerChoices === ! yourGuess) {
+           guessesLeft--;
+           document.write(yourGuess);
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }
+      
 
 
      var html = 
@@ -80,6 +99,7 @@
 
       var game = document.getElementById('game');
       game.innerHTML = html;
+    
     </script>
 
 </body>
